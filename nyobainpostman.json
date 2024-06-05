@@ -1,0 +1,616 @@
+{
+	"info": {
+		"_postman_id": "6ca5c0f1-0994-4d47-a338-a3bc03fe2bb1",
+		"name": "shop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27868436",
+		"_collection_link": "https://grey-comet-261676.postman.co/workspace/Back-End~33dad9c4-ecef-4b5b-83f6-af7b8745f9f9/collection/27868436-6ca5c0f1-0994-4d47-a338-a3bc03fe2bb1?action=share&source=collection_link&creator=27868436"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "penjual Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nama\": \"daffa z\",\n    \"email\": \"daffazikrilah1@gmail.com\",\n    \"password\": \"12345678\",\n    \"role\": \"penjual\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3200/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3200",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "penjual Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" :\"daffazikrilah1@gmail.com\",\n    \"password\" : \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3200/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3200",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pembeli Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nama_pembeli\": \"daffa z\",\n    \"email\": \"daffazikrilah1@gmail.com\",\n    \"lokasi_pembeli\": \"jalan raya bogor\",\n    \"password\": \"12345678\",\n    \"kontak_pembeli\": \"0831231243\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3200/auth/pembeli/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3200",
+							"path": [
+								"auth",
+								"pembeli",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pembeli Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success', function () {",
+									"     var responseData = pm.response.json();",
+									"     var id = responseData.data.id;",
+									"     var refresh_token = responseData.data.refresh_token;",
+									"     var access_token = responseData.data.access_token;",
+									"      var role = responseData.data.role;",
+									"",
+									"    pm.environment.set(\"id\", id);",
+									"    pm.environment.set(\"refresh_token\", refresh_token);",
+									"    pm.environment.set(\"access_token\", access_token);",
+									"          pm.environment.set(\"role\", role);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" :\"daffazikrilah1@gmail.com\",\n    \"password\" : \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3200/auth/pembeli/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3200",
+							"path": [
+								"auth",
+								"pembeli",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lupa_Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"daffazikrilah1@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3200/auth/pembeli/lupa-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3200",
+							"path": [
+								"auth",
+								"pembeli",
+								"lupa-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset_Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"new_password\" : \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3200/auth/pembeli/reset-password/1/3659b8d629b18b00253ea9e75f95c0a8040e97acf1ffebd032087fe267e64a96",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3200",
+							"path": [
+								"auth",
+								"pembeli",
+								"reset-password",
+								"1",
+								"3659b8d629b18b00253ea9e75f95c0a8040e97acf1ffebd032087fe267e64a96"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "penjual Profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success', function () {",
+									"    var data = pm.response.json()",
+									"    console.log('data', data.data.access_token)",
+									"",
+									"    pm.environment.set(\"access_token\", data.data.access_token);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYV9wZW5qdWFsIjoiZGFmZmEgeiIsImVtYWlsIjoiZGFmZmF6aWtyaWxhaDFAZ21haWwuY29tIiwiaWF0IjoxNzE2MjYyMDIzLCJleHAiOjE3MTYzNDg0MjN9.0ub5yTPOIQt9zFOHRnNUvxG4K6y5pH1S9B2xbTkRHws"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3200/auth/penjual/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3200",
+							"path": [
+								"auth",
+								"penjual",
+								"profile"
+							],
+							"query": [
+								{
+									"key": "Authorization",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYV9wZW5qdWFsIjoiZGFmZmEgeiIsImVtYWlsIjoiZGFmZmF6aWtyaWxhaDFAZ21haWwuY29tIiwiaWF0IjoxNzE2MjYyMDIzLCJleHAiOjE3MTYzNDg0MjN9.0ub5yTPOIQt9zFOHRnNUvxG4K6y5pH1S9B2xbTkRHws",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pembeli profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success', function () {",
+									"    var data = pm.response.json()",
+									"    console.log('data', data.data.access_token)",
+									"",
+									"    pm.environment.set(\"access_token\", data.data.access_token);",
+									"      pm.environment.set(\"role\", data.data.role);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYV9wZW1iZWxpIjoiZGFmZmEgeiIsImVtYWlsIjoiZGFmZmF6aWtyaWxhaDFAZ21haWwuY29tIiwiaWF0IjoxNzE2MjYyNjYwLCJleHAiOjE3MTYzNDkwNjB9.C9ndecTrVebrdoHps4Nn5citPK671GIYW2dkhqsP_G8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3200/auth/pembeli/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3200",
+							"path": [
+								"auth",
+								"pembeli",
+								"profile"
+							],
+							"query": [
+								{
+									"key": "an",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh-token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{refresh_token}}",
+								"type": "text"
+							},
+							{
+								"key": "id",
+								"value": "{{id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3200/auth/refresh-token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3200",
+							"path": [
+								"auth",
+								"refresh-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pengunna",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6ImRhZmZhIHoiLCJlbWFpbCI6ImRhZmZhemlrcmlsYWgxQGdtYWlsLmNvbSIsImlhdCI6MTcxNzU2NDg3OSwiZXhwIjoxNzE3NjUxMjc5fQ.BzZS4csA908t79xAjRIiTVRqqMyFg1K3JcV-YX8oKfA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nama_pelanggan\" : \"ariq\",\n    \"alamat\" :\" jalan sumber jaya\",\n    \"nomor_telepon\": \"039123123131\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3200/pelanggan/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3200",
+							"path": [
+								"pelanggan",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6ImRhZmZhIHoiLCJlbWFpbCI6ImRhZmZhemlrcmlsYWgxQGdtYWlsLmNvbSIsImlhdCI6MTcxNzU2NTMzNiwiZXhwIjoxNzE3NjUxNzM2fQ.UsRIQ04YPDtNBdREdh518e8HVo-w99G4v0fWF-HmKTk"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nama_produk\": \"baju anak schema\",\n    \"harga\": 20000000,\n    \"stok\": 100\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3200/produk/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3200",
+					"path": [
+						"produk",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6ImRhZmZhIHoiLCJlbWFpbCI6ImRhZmZhemlrcmlsYWgxQGdtYWlsLmNvbSIsImlhdCI6MTcxNzU2NDg3OSwiZXhwIjoxNzE3NjUxMjc5fQ.BzZS4csA908t79xAjRIiTVRqqMyFg1K3JcV-YX8oKfA"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3200/penjualan/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3200",
+					"path": [
+						"penjualan",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Detail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.escuelajs.co/api/v1/products/19/?q=a40a33a863df5f7955249a350fcc5319",
+					"protocol": "https",
+					"host": [
+						"api",
+						"escuelajs",
+						"co"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"19",
+						""
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "a40a33a863df5f7955249a350fcc5319"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tambah order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6ImRhZmZhIHoiLCJlbWFpbCI6ImRhZmZhemlrcmlsYWgxQGdtYWlsLmNvbSIsImlhdCI6MTcxNzU2NDg3OSwiZXhwIjoxNzE3NjUxMjc5fQ.BzZS4csA908t79xAjRIiTVRqqMyFg1K3JcV-YX8oKfA"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tanggal_penjualan\": \"2023-09-01\",\n    \"total_harga\": 200000,\n    \"pelanggan_id\": 1,\n    \"detail_penjualan\": [\n        {\n            \"jumlah_produk\": 10,\n            \"Subtotal\" : 100,\n            \"produk\": {\n                \"id\": 1\n            }\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3200/penjualan/tambah",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3200",
+					"path": [
+						"penjualan",
+						"tambah"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
